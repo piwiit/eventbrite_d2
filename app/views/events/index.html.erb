@@ -1,6 +1,46 @@
-<h1>Events#index</h1>
-<%
+
+<div class="container">
+<% unless current_user.present? %>
+<h1 class="text-dark py-5 text-center">Welcome </h1>
+<h1 class="text-dark py-5 text-center">please subcrib or logging you to see our beatiful website <br> The Event Brite !</h1>
+      <% else %>
+    <h1 class="text-dark py-5 text-center">Welcome <%=current_user.first_name%> </h1>
+
+  <div class="d-flex mt-4">
+    <h4 class="text-dark py-5 mx-auto">Voici la liste des events publié :</h4>
+  </div>
+  
+    <div class="row justify-content-center">  
+      <% if @events  &&  current_user.present?%>
+      <% @events.each do |event| %>
+      <div class="col-md-5 col-sm-12 col-xs-12 card m-4">
+        <!-- Card content -->
+        <div class="card-body">
+          <div class="text-right text-info mb-4">
+             <%
 =begin%>
- <p>ici sa fonctionne pour moi avec le User :<%= current_user.id %></p> 
+ <p class="card-text"><%= @events.user[:first_name] %></p> 
 <%
 =end%>
+          </div>
+          <!-- Title -->
+          
+          <h4 class="card-title"><%= truncate(event.title, length: 50) %></h4>
+          <!-- Text -->
+           <p class="card-text"><%= truncate(event.description, length: 100) %></p>
+          <!-- Button -->
+            <%= link_to  "En lire plus", event_path(event.id) %>
+
+        </div>
+      </div>
+      <% end %>
+      
+      <% else %>
+        <p>Il n'y a pas d'event à venir'</p>
+      <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
