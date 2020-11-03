@@ -1,47 +1,44 @@
-  <main role="main ">
+<main role="main ">
 
-      <section class="jumbotron ">
-          <h1 class="jumbotron-heading text-center"><%=current_user.first_name%></h1>
-          <p class="lead text-muted">Information personnelles :</p>
-          <ul class="list-group list-group-flush">
-  <li class="list-group-item">Nom : <%=current_user.last_name%></li>
-  <li class="list-group-item">Prénom : <%=current_user.first_name%></li>
-  <li class="list-group-item">Email : <%=current_user.email%></li>
-  <li class="list-group-item">Petite description : <%=current_user.description%></li>
+    <section class="jumbotron ">
+        <h1 class="jumbotron-heading text-center">Profile de <%=current_user.first_name%></h1>
+        <p class="lead text-muted">Information personnelles :</p>
+        <ul class="list-group list-group-flush">
+<li class="list-group-item">Nom : <%=current_user.last_name%></li>
+<li class="list-group-item">Prénom : <%=current_user.first_name%></li>
+<li class="list-group-item"><i class="fas fa-paper-plane"></i> : <%=current_user.email%></li>
+<li class="list-group-item"><i class="fas fa-stream"></i> : <%=current_user.description%></li>
 </ul>
-      </section>
+    </section>
 
-    <div class="album py-5 bg-light text-center">
-    <p class="lead text-muted">Information personnelles :</p>
-    <div class="container">
-          <div class="row text-center">
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-    </div>
+    <div class="row justify-content-center">
+  <% @userfind.events.each do |t| %>
+      <div class="card m-4 col-sm-12 col-md-4 col-lg-3 text-center">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= t.title %><br/><br/>
+          </h5>
+          <p class="card-text">
+            <%= t.duration %> minutes<br/><br/>
+            <%= t.start_date.strftime('%d/%m/%Y') %><br/><br/>
+            <%= t.price %>€<br/><br/>
+            <%= t.location %><br/><br/>
+            <%= t.description %><br/><br/>
+            <%= link_to "#{t.attendances.count} participant(s)", event_path(t.id), :class =>"btn btn-outline-info"  %><br/> <br/>
+          </p>
+        </div>
+      </div>
+      <% end %>
     </div>
 
     </main>
 
     <footer class="text-muted">
-      <div class="container">
+    <div class="container">
         <p class="float-right">
-          <a href="#">Back to top</a>
+        <a href="#">Back to top</a>
         </p>
         <p>Album example is &copy; taking on Bootstrap,and customize by Jonathan
         <a href="https://desolate-bayou-88355.herokuapp.com/">Visit the homepage</a> or read our <a href="https://github.com/piwiit/eventbrite_d2">getting started guide</a>.</p>
-      </div>
+    </div>
     </footer>

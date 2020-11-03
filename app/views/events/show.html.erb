@@ -1,2 +1,29 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<main role="main ">
+
+    <section class="jumbotron ">
+        <h1 class="jumbotron-heading text-center"><%=@event.title%></h1>
+        <p class="lead text-muted">Information personnelles :</p>
+        <ul class="list-group list-group-flush">
+<li class="list-group-item">Titre de l'event : <%=@event.title%></li>
+<li class="list-group-item"><i class="far fa-clock">  : Le <%=@event.start_date.strftime('%d/%m/%Y')%></i></li>
+<li class="list-group-item"><i class="fas fa-hourglass-half"></i> : <%=@event.duration%> minutes</li>
+<li class="list-group-item"><i class="fas fa-stream"></i> : <%=@event.description%></li>
+<li class="list-group-item"><i class="fas fa-map-marker-alt"></i> : <%=@event.location%></li>
+<li class="list-group-item"><i class="fas fa-euro-sign"></i> : <%=@event.price%> €</li>
+
+
+</ul>
+    </section>
+    
+    </main>
+
+    <footer class="text-muted">
+    <div class="container">
+        <p class="float-right">
+        <a href="#">Back to top</a>
+        </p>
+        <p>Album example is &copy; taking on Bootstrap,and customize by Jonathan
+        <a href="https://desolate-bayou-88355.herokuapp.com/">Visit the homepage</a> or read our <a href="https://github.com/piwiit/eventbrite_d2">getting started guide</a>.</p>
+    </div>
+    </footer>
+
