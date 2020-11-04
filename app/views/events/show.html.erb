@@ -4,13 +4,13 @@
         <h1 class="jumbotron-heading text-center"><%=@event.title%></h1>
         <p class="lead text-muted">Information personnelles :</p>
         <ul class="list-group list-group-flush">
-<li class="list-group-item">Titre de l'event : <%=@event.title%></li>
+<li class="list-group-item">Administrateur : <%=@event.admin[:first_name]%></li>
 <li class="list-group-item"><i class="far fa-clock">  : Le <%=@event.start_date.strftime('%d/%m/%Y')%></i></li>
 <li class="list-group-item"><i class="fas fa-hourglass-half"></i> : <%=@event.duration%> minutes</li>
 <li class="list-group-item"><i class="fas fa-stream"></i> : <%=@event.description%></li>
 <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> : <%=@event.location%></li>
 <li class="list-group-item"><i class="fas fa-euro-sign"></i> : <%=@event.price%> €</li>
-
+<button type="button" class="btn btn-info"><%= link_to "S'inscrire à l'event", new_user_registration_path, class:"text-white" %></button>
 
 </ul>
     </section>

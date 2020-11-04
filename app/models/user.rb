@@ -5,7 +5,7 @@ class User < ApplicationRecord # :confirmable, :lockable, :timeoutable, :trackab
          :rememberable,
          :validatable
   after_create :welcome_send
-  has_many :events
+  has_many :events, foreign_key: 'admin'
   has_many :attendances
   has_many :attended_events, through: :attendances, source: :event
 

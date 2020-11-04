@@ -11,22 +11,17 @@ User.destroy_all
 Event.destroy_all
 Attendance.destroy_all
 
-users = []
-events = []
-attendances = []
-
 10.times do
-  users <<
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email(domain: '@yopmail.com'),
     description: Faker::Lorem.paragraphs(number: 1)
   )
+  puts 'User cree'
 end
 
 10.times do
-  events <<
   Event.create(
     start_date: Faker::Date.forward(days: 31),
     duration: Faker::Number.within(range: 1..25) * 5,
@@ -34,10 +29,12 @@ end
     description: Faker::Lorem.characters(number: 25),
     price: Faker::Number.within(range: 1..1000),
     location: Faker::Address.city,
-    user: users.sample)
+    admin: User.all.sample
+  )
+  puts 'event cree'
 end
 
 10.times do
-  attendances <<
-  Attendance.create(user: users.sample, event:events.sample)
+  Attendance.create(user: User.all.sample, event: Event.all.sample)
+  puts 'Attendance cree'
 end

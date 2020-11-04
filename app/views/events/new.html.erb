@@ -1,2 +1,36 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-md-6 offset-md-3">
+    <h1 class="h3 mb-3 font-weight-normal ">Créer event</h1>
+   <%= form_tag events_path, multipart: true do %>
+
+	<%= label_tag 'Title' %>
+	<%= text_field_tag 'title', @event.title, placeholder: "Your title", class: "form-control mb-3" %>
+
+	<%= label_tag 'Start date' %>
+	<%= text_field_tag 'start_date', @event.start_date, placeholder: "Exemple: 2020/06/12 12:00:00", class: "form-control mb-4" %>
+
+	<%= label_tag 'Duration' %>
+	<%= text_field_tag 'duration', @event.duration, placeholder: "Duration must be a multiple of 5", class: "form-control mb-4" %>
+
+	<%= label_tag 'Description' %>
+	<%= text_area_tag 'description', @event.description, placeholder: "A short description of your event", class: "form-control mb-4" %>
+
+	<%= label_tag 'Price' %>
+	<%= text_field_tag 'price', @event.price, placeholder: "Price in euros (without the € sign)", class: "form-control mb-4" %>
+
+	<%= label_tag 'Location' %>
+	<%= text_field_tag 'location', @event.location, placeholder: "Address of the event", class: "form-control mb-4" %>
+
+	<%= label_tag 'Event picture' %>
+	<%= file_field_tag :eventpictures %>
+
+	<br/><br/>
+
+
+	<%= submit_tag "Create event", class: "btn btn-primary" %>
+
+	<% end %>
+    </div>
+  </div>
+</div>
