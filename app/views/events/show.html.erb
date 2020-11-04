@@ -10,7 +10,7 @@
 <li class="list-group-item"><i class="fas fa-stream"></i> : <%=@event.description%></li>
 <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> : <%=@event.location%></li>
 <li class="list-group-item"><i class="fas fa-euro-sign"></i> : <%=@event.price%> €</li>
-<button type="button" class="btn btn-info"><%= link_to "S'inscrire à l'event", new_user_registration_path, class:"text-white" %></button>
+<%= link_to "S'inscrire à l'event", new_event_charge_path(params[:id]), class:"btn btn-info text-white" %>
 
 </ul>
     </section>

@@ -1,4 +1,5 @@
-class UsersController < ApplicationController # before_action :good_user
+class UsersController < ApplicationController
+  before_action :good_user
   def good_user
     redirect_to root_path unless current_user == User.find(params[:id])
   end
