@@ -1,3 +1,7 @@
+<main role="main ">
+    <section class="jumbotron text-center ">
+
+
 <%= form_tag event_charges_path do %>
   <article>
     <% if flash[:error].present? %>
@@ -6,13 +10,16 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>Amount: $5.00</span>
+      <span>Somme à payer : <%= @price %></span>
     </label>
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="A month's subscription"
-          data-amount="500"
+          data-amount="<%= @price %>"
           data-locale="auto"></script>
 <% end %>
+    </section>
+
+    </main>
