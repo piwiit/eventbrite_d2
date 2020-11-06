@@ -19,6 +19,7 @@ class EventsController < ApplicationController
         location: params[:location],
         admin_id: current_user.id
       )
+    @event.picture.attach(params[:picture])
     if @event.save
       redirect_to event_path(@event.id)
     else

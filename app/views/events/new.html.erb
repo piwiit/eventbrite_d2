@@ -22,14 +22,11 @@
 	<%= label_tag 'Location' %>
 	<%= text_field_tag 'location', @event.location, placeholder: "Address of the event", class: "form-control mb-4" %>
 
-	<%= label_tag 'Event picture' %>
-	<%= file_field_tag :eventpictures %>
-
+	<%= label_tag 'picture' %>
+	<%= file_field_tag :picture %>
 	<br/><br/>
 
-
 	<%= submit_tag "Create event", class: "btn btn-primary" %>
-
 	<% end %>
     </div>
   </div>

@@ -16,7 +16,7 @@ class Event < ApplicationRecord
   belongs_to :admin, class_name: 'User'
   has_many :attendances
   has_many :users, through: :attendances
-
+  has_one_attached :picture
   def start_must_be_before_end_time
     start_date > Time.now
   end
