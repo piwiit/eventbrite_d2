@@ -14,16 +14,17 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'df952b974c9e9b1111f4db767125280d2a9e2b3d195f1299d7685fed96450660edde23b7ff449016a06dcb58ac28be9c0aa1e1d623de5a9b9e45dbed30548c01'
+  # config.secret_key = '7b65733445388296efeb9aff6f1ba6b5d23337bd0056e36e043b9533382902b5011b01b6167110f241b9d534d09ecfab359fd01f324c9421f25abb1501545557'
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender =
-    'dudu@yopmail.com'
+  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -57,12 +58,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = %i[email]
+  config.case_insensitive_keys = [:email]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = %i[email]
+  config.strip_whitespace_keys = [:email]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -96,7 +97,7 @@ Devise.setup do |config|
   # Notice that if you are skipping storage for all authentication paths, you
   # may want to disable generating routes to Devise's sessions controller by
   # passing skip: :sessions to `devise_for` in your config/routes.rb
-  config.skip_session_storage = %i[http_auth]
+  config.skip_session_storage = [:http_auth]
 
   # By default, Devise cleans up the CSRF token on authentication to
   # avoid CSRF token fixation attacks. This means that, when using AJAX
@@ -125,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'ce4421cdceec777806ad40ecc28eb5286630bce6992ec1248826899ae463084943d601dedbab222657d709886ce98f1a37b17bdfd22a4a5ea0272e683719ac32'
+  # config.pepper = '139e0048eca96939b44ab2d830c1d4ef3a8d9645d700655827d48083ce34e91fc88854b8d587ac5a03e52b5c4114799109a0d1ef3a6406452f14957691c0768d'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false

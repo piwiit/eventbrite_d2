@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'pictures/create'
   root to: 'events#index'
   devise_for :users
   resources :users, only: %i[show]
