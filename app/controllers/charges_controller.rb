@@ -9,25 +9,24 @@ class ChargesController < ApplicationController
     @price = @event.price
     amount = @price * 100
 
-    if is_a?(@event)
-      Attendance.create(user_id: current_user.id, event_id: @event.id)
-      redirect_to event_path(@event.id)
-    else
-      customer =
-        Stripe::Customer.create(
-          { email: params[:stripeEmail], source: params[:stripeToken] }
-        )
+    # if is_a?(@event)
+    #   Attendance.create(user_id: current_user.id, event_id: @event.id)
+    #   redirect_to event_path(@event.id)
+    # else
+    customer =
+      Stripe::Customer.create(
+        { email: params[:stripeEmail], source: params[:stripeToken] }
+      )
 
-      charge =
-        Stripe::Charge.create(
-          {
-            customer: customer.id,
-            amount: amount,
-            description: 'Rails Stripe customer',
-            currency: 'usd'
-          }
-        )
-    end
+    charge =
+      Stripe::Charge.create(
+        {
+          customer: customer.id,
+          amount: amount,
+          description: 'Rails Stripe customer',
+          currency: 'usd'
+        }
+      )
 
     if customer.save && charge.save
       Attendance.create(

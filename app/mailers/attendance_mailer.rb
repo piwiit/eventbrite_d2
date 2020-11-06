@@ -6,7 +6,7 @@ class AttendanceMailer < ApplicationMailer
     @attendance = attendance
     @user = @attendance.user # c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet. #on définit une variable @url qu'on utilisera dans la view d’e-mail
     mail(
-      to: @attendance.event.user.email, subject: 'Bienvenue dans ton event !'
+      to: @attendance.event.admin.email, subject: 'Bienvenue dans ton event !'
     )
   end
 end
